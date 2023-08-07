@@ -360,3 +360,10 @@ wtmp     lastlog   faillog   cron.log       auth.log  alternatives.log
 upstart  kern.log  dpkg.log  btmp           apt
 syslog   fsck      dmesg     bootstrap.log  apache2
 ```
+
+
+# Administrative Access
+There are many Linux commands which deal with sensitive information like passwords, system hardware, or otherwise operate under other exceptional circumstances. Preventing regular users from executing these commands helps to protect the system. Logging in as the root user provides administrative access, allowing for the execution of some of the privileged commands.
+The **su** Command
+**su OPTIONS USERNAME**
+The su command allows you to temporarily act as a different user. It does this by creating a new shell. The shell is simply a text input console that lets you type in commands. By default, if a user account is not specified, the su command will open a new shell as the root user, which provides administrative privileges.
