@@ -410,3 +410,42 @@ sysadmin@localhost:~$  sudo sl
 Once the command has completed, notice the prompt has not changed, you are still logged in as sysadmin. The sudo command only provides administrative access for the execution of the specified command. This is an advantage as it reduces the risk that a user accidentally executes a command as root. The intention to execute a command is clear; the command is executed as root if prefixed with the sudo command. Otherwise, the command is executed as a regular user.
 
 Now we can notice the difference between "su" and "sudo," or superuser and superuser do. When using "su," we switch completely to root to execute commands that require permissions. On the other hand, with "sudo," we will use it to execute a command that requires permissions while still remaining the same user, only the superuser, like a third party, will handle that command.
+
+
+# Permissions
+Permissions determine the ways different users can interact with a file or directory. When listing a file with the ls -l command, the output includes permission information. 
+```console
+sysadmin@localhost:~/Documents$ ls -l hello.sh                                  
+-rw-r--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh
+```
+## Permissions Field
+-**rw-r--r--** 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh
+After the first character (the file type character), the permissions are displayed. The permissions are broken into three sets of three characters:
+### Owner
+- **rw-** r--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh
+The first set is for the user who owns the file. If your current account is the user owner of the file, then the first set of the three permissions will apply and the other permissions have no effect.
+
+The user who owns the file, and who these permissions apply to, can be determined by the user owner field:
+
+-rw-r--r-- 1 **sysadmin** sysadmin 647 Dec 20  2017 hello.sh
+
+### Group
+-rw- **r--** r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh
+The second set is for the group that owns the file. If your current account is not the user owner of the file and you are a member of the group that owns the file, then the group permissions will apply and the other permissions have no effect.
+
+The group for this file can be determined by the group owner field:
+
+-rw-r--r-- 1 sysadmin **sysadmin** 647 Dec 20  2017 hello.sh
+
+### Other
+-rw-r-- **r--** 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh
+The last set is for everyone else, any one who that first two sets of permissions do not apply to. If you are not the user who owns the file or a member of the group that owns the file, the third set of permissions applies to you.
+
+## Permission Types
+There are three different permissions that can be placed on a file or directory: read, write, and execute. The manner in which these permissions apply differs for files and directories, as shown in the chart below:
+
+| Permission | Effects on File	| Effects on Directory |
+| :---------:|------------------| ---------------------|
+| read (r)	 | Allows for file contents to be read or copied.	| Without execute permission on the directory, allows for a non-detailed listing of files. With execute permission, ls -l can provide a detailed listing. |
+| write (w)	 | Allows for contents to be modified or overwritten. Allows for files to be added or removed from a directory. |	For this permission to work, the directory must also have execute permission. |
+| execute (x)| Allows for a file to be run as a process, although script files require read permission, as well. |	Allows a user to change to the directory if parent directories have execute permission as well. |
