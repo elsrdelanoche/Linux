@@ -367,3 +367,46 @@ There are many Linux commands which deal with sensitive information like passwor
 The **su** Command
 **su OPTIONS USERNAME**
 The su command allows you to temporarily act as a different user. It does this by creating a new shell. The shell is simply a text input console that lets you type in commands. By default, if a user account is not specified, the su command will open a new shell as the root user, which provides administrative privileges.
+```console
+sysadmin@localhost:~$ su  -
+Password:
+root@localhost:~#
+```
+
+Note the command prompt has changed to reflect that you are now logged in as the root user. To logout and return to the sysadmin account, use the exit command. Note the prompt changes back:
+```console
+root@localhost:~# exit
+logout
+sysadmin@localhost:~$
+```
+## The **sudo** Command (super user **do**)
+**sudo [OPTIONS] COMMAND**
+
+The sudo command allows a user to execute a command as another user without creating a new shell. Instead, to execute a command with administrative privileges, use it as an argument to the sudo command. Like the su command, the sudo command assumes by default the root user account should be used to execute commands.
+
+Note: The prompt for the password will not appear again as long as the user continues to execute sudo commands less than five minutes apart.
+
+```console
+sysadmin@localhost:~$  sudo sl
+[sudo] password for sysadmin:
+
+                             (@@) (  ) (@)  ( )  @@    ()    @     O     @
+                         (   )
+                     (@@@@)
+                  (    )
+
+                (@@@)
+            ====        ________                ___________
+        _D _|  |_______/        \__I_I_____===__|_________|
+         |(_)---  |   H\________/ |   |        =|___ ___|      _________________
+         /     |  |   H  |  |     |   |         ||_| |_||     _|
+        |      |  |   H  |__--------------------| [___] |   =|
+        | ________|___H__/__|_____/[][]~\_______|       |   -|
+        |/ |   |-----------I_____I [][] []  D   |=======|____|__________________
+      __/ =| o |=-~~\  /~~\  /~~\  /~~\ ____Y___________|__|____________________
+       |/-=|___|=    ||    ||    ||    |_____/~\___/          |_D__D__D_|  |_D__
+        \_/      \_O=====O=====O=====O/      \_/               \_/   \_/    \_/
+```
+Once the command has completed, notice the prompt has not changed, you are still logged in as sysadmin. The sudo command only provides administrative access for the execution of the specified command. This is an advantage as it reduces the risk that a user accidentally executes a command as root. The intention to execute a command is clear; the command is executed as root if prefixed with the sudo command. Otherwise, the command is executed as a regular user.
+
+Now we can notice the difference between "su" and "sudo," or superuser and superuser do. When using "su," we switch completely to root to execute commands that require permissions. On the other hand, with "sudo," we will use it to execute a command that requires permissions while still remaining the same user, only the superuser, like a third party, will handle that command.
