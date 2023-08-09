@@ -17,4 +17,11 @@ sudo apt install --reinstall build-essential
 sudo apt-get install git cmatrix
 ```
 
+```console
+cd Descargas
+sudo dpkg -i *.deb
+rm *.deb
 
+sudo apt --fix-broken install -y
+cd
+```
