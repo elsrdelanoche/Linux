@@ -30,3 +30,9 @@ sudo apt-get install python -y
 sudo apt-get install clang python3 -y
 sudo apt-get install tree lolcat figlet -y
 ```
+
+```console
+sudo apt-get install git make pip npm node cargo -y
+```
+
+https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally/
