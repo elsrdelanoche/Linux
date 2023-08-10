@@ -496,12 +496,7 @@ sysadmin@localhost:~/Documents$ chmod u+x hello.sh
 ```
 No output indicates the command succeeded. Confirm by checking the permissions using the ls -l command.
 The user owner now has the execute permission listed:
-```console
-sysadmin@localhost:~/Documents$ ./hello.sh   
--bash: ./hello.sh: Permission denied                                            
-sysadmin@localhost:~/Documents$ ls -l hello.sh                                  
--rw-r--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh                        
-sysadmin@localhost:~/Documents$ chmod u+x hello.sh                              
+```console                            
 sysadmin@localhost:~/Documents$ ls -l hello.sh                                  
 -rwxr--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh                        
 sysadmin@localhost:~/Documents$ ./hello.sh                                      
@@ -513,7 +508,7 @@ sysadmin@localhost:~/Documents$ ./hello.sh
            <(^)                                                                 
             ( )                                                                 
 ```
-## The OCtal Method
+## The Octal Method
 To learn more about the octal method check out NDG Linux Essentials!
 
 Note: "./" This indicates the "command" should be run from the current directory.
