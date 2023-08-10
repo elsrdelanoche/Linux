@@ -449,3 +449,71 @@ There are three different permissions that can be placed on a file or directory:
 | read (r)	 | Allows for file contents to be read or copied.	| Without execute permission on the directory, allows for a non-detailed listing of files. With execute permission, ls -l can provide a detailed listing. |
 | write (w)	 | Allows for contents to be modified or overwritten. Allows for files to be added or removed from a directory. |	For this permission to work, the directory must also have execute permission. |
 | execute (x)| Allows for a file to be run as a process, although script files require read permission, as well. |	Allows a user to change to the directory if parent directories have execute permission as well. |
+
+
+# Changing File Permissions
+The __chmod__ command is used to change the permissions of a file or directory. Only the root user or the user who owns the file is able to change the permissions of a file.
+chmod (change the modes of access).
+
+There are two techniques for changing permissions with the chmod command: symbolic and octal. The symbolic method is good for changing one set of permissions at a time. The octal or numeric method requires knowledge of the octal value of each of the permissions and requires all three sets of permissions (user, group, other) to be specified every time.
+
+## The Symbolic Method
+chmod [<SET><ACTION><PERMISSIONS>]... FILE
+To use the symbolic method of chmod first indicate which set of permissions is being changed:
+
+| Symbol |	Meaning |
+| :-----:|----------|
+| u |	User: The user who owns the file. |
+| g |	Group: The group who owns the file. |
+| o |	Others: Anyone other than the user owner or member of the group owner. |
+| a |	All: Refers to the user, group and others. |
+
+Next, specify an action symbol:
+| Symbol |	Meaning |
+| :-----:|----------|
+| + |	Add the permission, if necessary|
+| = |	Specify the exact permission |
+| -	| Remove the permission, if necessary|
+
+After an action symbol, specify one or more permissions to be acted upon.
+| Symbol |	Meaning |
+| :-----:|----------|
+| r | read |
+| w |	write |
+| x |	execute |
+
+Finally, a space and the pathnames for the files to assign those permissions.
+-rw-r--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh 
+
+```console
+sysadmin@localhost:~/Documents$ ./hello.sh                                      
+-bash: ./hello.sh: Permission denied
+```
+
+Since the system is currently logged in as the sysadmin user, and sysadmin is the owner of this file, giving the user owner the execute permission should allow you to execute this script. Using the chmod command with the u character to represent the user owner permission set, the + character to indicate a permission is being added, and the x character to represent the execute permission, the command should be executed as follows:
+```console
+sysadmin@localhost:~/Documents$ chmod u+x hello.sh
+```
+No output indicates the command succeeded. Confirm by checking the permissions using the ls -l command.
+The user owner now has the execute permission listed:
+```console
+sysadmin@localhost:~/Documents$ ./hello.sh   
+-bash: ./hello.sh: Permission denied                                            
+sysadmin@localhost:~/Documents$ ls -l hello.sh                                  
+-rw-r--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh                        
+sysadmin@localhost:~/Documents$ chmod u+x hello.sh                              
+sysadmin@localhost:~/Documents$ ls -l hello.sh                                  
+-rwxr--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh                        
+sysadmin@localhost:~/Documents$ ./hello.sh                                      
+ ______________                                                                 
+( Hello World! )                                                                
+ --------------                                                                 
+        \                                                                       
+         \                                                                      
+           <(^)                                                                 
+            ( )                                                                 
+```
+## The OCtal Method
+To learn more about the octal method check out NDG Linux Essentials!
+
+Note: "./" This indicates the "command" should be run from the current directory.
