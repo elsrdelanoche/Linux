@@ -531,7 +531,9 @@ The cat command displays all five lines of the file above. When viewing larger f
 Another way to view the content of files is by using the head and tail commands. These commands are used to view a select number of lines from the top or bottom of a file. Taking a look at a few lines of a file can sometimes be helpful to ensure that the file is the one you want to use.
 
 Another reason to preview only the first or last few lines, is because some files, such as system log files are frequently updated with new entries.
+
 head [OPTIONS] [FILE]
+
 tail [OPTIONS] [FILE]
 
 ```console
@@ -595,4 +597,24 @@ Y is for Yellow
 Z is for Zebra
 ```
 
-you can see that the default behavior of the head and tail commands in this shell is to display ten lines.
+You can see that the default behavior of the head and tail commands in this shell is to display ten lines.
+
+The -n option with the head and tail commands can be used to specify the amount of lines to display. 
+
+head -n number_of_lines filename
+```console
+sysadmin@localhost:~/Documents$ head -n 5 alpha.txt                    
+A is for Apple                                                         
+B is for Bear                                                          
+C is for Cat                                                           
+D is for Dog                                                           
+E is for Elephant
+```
+```console
+sysadmin@localhost:~/Documents$ tail -n 5 alpha.txt 
+V is for Velvet                                                        
+W is for Walrus                                                         
+X is for Xenon                                                          
+Y is for Yellow                                                         
+Z is for Zebra
+```
