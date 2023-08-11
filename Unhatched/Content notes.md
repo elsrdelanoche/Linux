@@ -526,3 +526,73 @@ sysadmin@localhost:~/Documents$ cat animals.txt
 4 wolf                                                                  
 5 eagle
 ```
+The cat command displays all five lines of the file above. When viewing larger files, the cat command can result in very lengthy output that cannot be paused to scroll through. A better method of viewing long text files, is with a pager command which has a functionality that can pause and scroll through the output of the file.
+
+Another way to view the content of files is by using the head and tail commands. These commands are used to view a select number of lines from the top or bottom of a file. Taking a look at a few lines of a file can sometimes be helpful to ensure that the file is the one you want to use.
+
+Another reason to preview only the first or last few lines, is because some files, such as system log files are frequently updated with new entries.
+head [OPTIONS] [FILE]
+tail [OPTIONS] [FILE]
+
+```console
+sysadmin@localhost:~/Documents$ cat alpha.txt       
+A is for Apple                    
+B is for Bear           
+C is for Cat                      
+D is for Dog                               
+E is for Elephant                                      
+F is for Flower       
+G is for Grapes                     
+H is for Happy                                     
+I is for Ink                                                         
+J is for Juice                                   
+K is for Kangaroo
+L is for Lol                                                             
+M is for Monkey                       
+N is for Nickel                             
+O is for Oval                  
+P is for Pickle       
+Q is for Quark                         
+R is for Rat                          
+S is for Sloth                       
+T is for Turnip                        
+U is for Up                                     
+V is for Velvet                       
+W is for Walrus                    
+X is for Xenon                        
+Y is for Yellow         
+Z is for Zebra
+```
+
+In the example above, all twenty-six lines of the file are displayed.
+
+To filter the output and view lines from the top of the alpha.txt file, use the head command:
+```console
+sysadmin@localhost:~/Documents$ head alpha.txt                          
+A is for Apple                                                        
+B is for Bear                                                         
+C is for Cat                                                        
+D is for Dog                                                         
+E is for Elephant                                                     
+F is for Flower                                                       
+G is for Grapes                                                        
+H is for Happy                                                        
+I is for Ink                                                          
+J is for Juice
+```
+Then, to view lines at the bottom of the alpha.txt file, you use the tail command:
+```console
+sysadmin@localhost:~/Documents$ tail alpha.txt                          
+Q is for Quark                                                         
+R is for Rat                                                           
+S is for Sloth                                                        
+T is for Turnip                                                        
+U is for Up                                                            
+V is for Velvet                                                      
+W is for Walrus                                                        
+X is for Xenon                                                        
+Y is for Yellow                                                        
+Z is for Zebra
+```
+
+you can see that the default behavior of the head and tail commands in this shell is to display ten lines.
