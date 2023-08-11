@@ -512,3 +512,7 @@ sysadmin@localhost:~/Documents$ ./hello.sh
 To learn more about the octal method check out NDG Linux Essentials!
 
 Note: "./" This indicates the "command" should be run from the current directory.
+
+
+# Viewing Files
+The cat command, which stands for “concatenate”, is often used to quickly view the contents of small files.
