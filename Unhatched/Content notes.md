@@ -516,3 +516,13 @@ Note: "./" This indicates the "command" should be run from the current directory
 
 # Viewing Files
 The cat command, which stands for “concatenate”, is often used to quickly view the contents of small files.
+cat [OPTIONS] [FILE]
+
+```console
+sysadmin@localhost:~/Documents$ cat animals.txt                            
+1 retriever                                                             
+2 badger                                                                
+3 bat                                                                  
+4 wolf                                                                  
+5 eagle
+```
