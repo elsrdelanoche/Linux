@@ -20,7 +20,7 @@ si aparece advertencia, dar zoom out
 
 
 ```console
-apt install git curl wget 
+apt install git curl wget nvim zip unzip python3
 apt update && upgrade
 ```
 
