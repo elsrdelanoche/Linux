@@ -1,4 +1,4 @@
-Install from
+Install from https://github.com/termux/termux-app
 
 
 optional
