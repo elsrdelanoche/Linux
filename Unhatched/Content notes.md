@@ -618,3 +618,28 @@ X is for Xenon
 Y is for Yellow                                                         
 Z is for Zebra
 ```
+
+# Copying Files
+- If a copy of a file is created before changes are made, then it is possible to revert back to the original.
+- A copy of a file can be used to transfer a file to removable media devices.
+- A copy of an existing document can be used as a template for a new document.
+
+**[OPTIONS] SOURCE DESTINATION**
+
+```console
+sysadmin@localhost:~/Documents$ cp /etc/passwd .
+```
+Note
+
+The second argument is the . character. Recall from the Changing Directories section that is a shortcut which represents the current directory.
+
+The result of executing the previous command would create a copy of the contents of the /etc/passwd file in the Documents directory, since that is our current directory. This can be confirmed using the ls command:
+
+```console
+sysadmin@localhost:~/Documents$ ls
+School            alpha-third.txt  hidden.txt    numbers.txt  red.txt           
+Work              alpha.txt        letters.txt   os.csv                         
+adjectives.txt    animals.txt      linux.txt     passwd                         
+alpha-first.txt   food.txt         longfile.txt  people.csv                     
+alpha-second.txt  hello.sh         newhome.txt   profile.txt
+```
