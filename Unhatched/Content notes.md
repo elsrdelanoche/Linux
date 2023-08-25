@@ -620,11 +620,12 @@ Z is for Zebra
 ```
 
 # Copying Files
+## Using cp
 - If a copy of a file is created before changes are made, then it is possible to revert back to the original.
 - A copy of a file can be used to transfer a file to removable media devices.
 - A copy of an existing document can be used as a template for a new document.
 
-**[OPTIONS] SOURCE DESTINATION**
+**cp [OPTIONS] SOURCE DESTINATION**
 
 ```console
 sysadmin@localhost:~/Documents$ cp /etc/passwd .
@@ -643,3 +644,24 @@ adjectives.txt    animals.txt      linux.txt     passwd
 alpha-first.txt   food.txt         longfile.txt  people.csv                     
 alpha-second.txt  hello.sh         newhome.txt   profile.txt
 ```
+## Using dd
+The dd command is a utility for copying files or entire partitions at the bit level.
+**dd [OPTIONS] OPERAND**
+
+- It can be used to clone or delete (wipe) entire disks or partitions.
+- It can be used to copy raw data to removable devices, such as USB drives and CDROMs.
+- It can backup and restore the MBR (Master Boot Record).
+- It can be used to create a file of a specific size that is filled with binary zeros, which can then be used as a swap file (virtual memory).
+
+Let's examine the following example. The dd command creates a file named /tmp/swapex with 50 blocks of zeros that are one megabyte in size:
+
+Use the following cd command to return to the home directory:
+```console
+sysadmin@localhost:~/Documents$ cd ~
+sysadmin@localhost:~$ dd if=/dev/zero of=/tmp/swapex bs=1M count=50 
+50+0 records in
+50+0 records out
+52428800 bytes (52 MB) copied, 0.825745 s, 63
+```
+
+Completar 11.1
