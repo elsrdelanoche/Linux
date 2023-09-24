@@ -15,6 +15,7 @@ sudo apt install brave-browser
 sudo apt-get install neofetch
 sudo apt install --reinstall build-essential
 sudo apt-get install git cmatrix
+sudo apt-get install golang
 ```
 
 ```console
